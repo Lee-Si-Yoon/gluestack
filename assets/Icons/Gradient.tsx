@@ -1,5 +1,5 @@
-import React from "react";
-import { Svg, G, Ellipse, Defs, RadialGradient, Stop } from "react-native-svg";
+import React from 'react';
+import { Svg, G, Ellipse, Defs, RadialGradient, Stop } from 'react-native-svg';
 
 const SvgComponent = () => {
   return (
@@ -31,8 +31,7 @@ const SvgComponent = () => {
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(222.599 277.706) rotate(90) scale(780.255 715.448)"
-        >
+          gradientTransform="translate(222.599 277.706) rotate(90) scale(780.255 715.448)">
           <Stop offset="0%" stopColor="#5D4178" />
           <Stop offset="100%" stopColor="#2D1248" stopOpacity="0" />
         </RadialGradient>
@@ -42,8 +41,7 @@ const SvgComponent = () => {
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(-82.2838 30.7211) rotate(90) scale(563.717 516.895)"
-        >
+          gradientTransform="translate(-82.2838 30.7211) rotate(90) scale(563.717 516.895)">
           <Stop offset="0%" stopColor="#6212B1" />
           <Stop offset="100%" stopColor="#220044" stopOpacity="0" />
         </RadialGradient>

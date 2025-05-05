@@ -67,8 +67,7 @@ const SkeletonText = React.forwardRef<HTMLDivElement, ISkeletonTextProps>(
             ref={ref}
             className={`flex flex-col ${skeletonTextStyle({
               gap,
-            })}`}
-          >
+            })}`}>
             {Array.from({ length: _lines }).map((_, index) => (
               <div
                 key={index}

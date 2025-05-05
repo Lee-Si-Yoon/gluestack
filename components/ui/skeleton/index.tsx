@@ -16,10 +16,7 @@ type ISkeletonTextProps = React.ComponentProps<typeof View> &
     startColor?: string;
   };
 
-const Skeleton = forwardRef<
-  React.ElementRef<typeof Animated.View>,
-  ISkeletonProps
->(
+const Skeleton = forwardRef<React.ElementRef<typeof Animated.View>, ISkeletonProps>(
   (
     {
       className,
@@ -79,10 +76,7 @@ const Skeleton = forwardRef<
   }
 );
 
-const SkeletonText = forwardRef<
-  React.ElementRef<typeof View>,
-  ISkeletonTextProps
->(
+const SkeletonText = forwardRef<React.ElementRef<typeof View>, ISkeletonTextProps>(
   (
     {
       className,
@@ -102,8 +96,7 @@ const SkeletonText = forwardRef<
             className={`${skeletonTextStyle({
               gap,
             })}`}
-            ref={ref}
-          >
+            ref={ref}>
             {Array.from({ length: _lines }).map((_, index) => (
               <Skeleton
                 key={index}
