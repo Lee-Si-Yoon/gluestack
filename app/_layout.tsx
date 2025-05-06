@@ -1,11 +1,13 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Slot } from 'expo-router';
+import { useFonts } from 'expo-font';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import * as SplashScreen from 'expo-splash-screen';
+import SuperTokens from 'supertokens-react-native';
+
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/components/useColorScheme';
-import { Slot } from 'expo-router';
 
 import '../global.css';
 
@@ -21,6 +23,11 @@ export {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+SuperTokens.init({
+  apiDomain: 'https://api-internal-dev.friendli.ai',
+  apiBasePath: '/api/auth',
+});
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({

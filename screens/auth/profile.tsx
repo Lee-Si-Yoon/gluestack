@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import SuperTokens from 'supertokens-react-native';
 
 import { AvatarBadge } from '@/components/ui/avatar';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
@@ -29,7 +30,8 @@ export const Profile = () => {
         <View style={{ marginBottom: 8 }}>
           <Button
             variant="outline"
-            onPress={() => {
+            onPress={async () => {
+              await SuperTokens.signOut();
               router.push('/');
             }}>
             <ButtonText>Sign out</ButtonText>

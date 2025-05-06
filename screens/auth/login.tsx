@@ -23,17 +23,6 @@ import { Button, ButtonText } from '@/components/ui/button';
 import { HStack } from '@/components/ui/hstack';
 import { VStack } from '@/components/ui/vstack';
 
-const USERS = [
-  {
-    email: 'test@test.com',
-    password: 'test',
-  },
-  {
-    email: 'Test@test.com',
-    password: 'test',
-  },
-];
-
 const loginSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
   password: z.string().min(1, 'Password is required'),
@@ -60,17 +49,22 @@ export const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = (data: LoginSchemaType) => {
-    const user = USERS.find((element) => element.email === data.email);
+  const onSubmit = async (data: LoginSchemaType) => {
+    const { status } = await fetch('https://api-internal-dev.friendli.ai/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-    if (user) {
-      if (user.password !== data.password) setValidated({ emailValid: true, passwordValid: false });
-      else {
-        setValidated({ emailValid: true, passwordValid: true });
-
-        reset();
-        router.push('/tabs');
-      }
+    if (status === 200) {
+      setValidated({ emailValid: true, passwordValid: true });
+      reset();
+      router.push('/tabs');
     } else {
       setValidated({ emailValid: false, passwordValid: true });
     }
@@ -117,6 +111,7 @@ export const Login = () => {
                 onBlur={onBlur}
                 onSubmitEditing={handleKeyPress}
                 returnKeyType="done"
+                autoCapitalize="none"
               />
             </Input>
           )}
