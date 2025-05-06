@@ -27,9 +27,9 @@ export const Profile = () => {
           <AvatarImage alt="Profile Image" source={require('@/assets/images/favicon.png')} />
           <AvatarBadge />
         </Avatar>
-        <View>
-          <Heading size="xl">{data?.clientSession?.user?.name}</Heading>
-          <Text>{data?.clientSession?.user?.email}</Text>
+        <View style={{ alignItems: 'center' }}>
+          <Heading size="xl">{data?.clientSession?.user?.name || '(name)'}</Heading>
+          <Text>{data?.clientSession?.user?.email || '(email)'}</Text>
         </View>
         <View style={{ marginBottom: 8 }}>
           <Button
