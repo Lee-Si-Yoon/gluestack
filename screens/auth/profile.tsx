@@ -11,10 +11,14 @@ import { InputField } from '@/components/ui/input';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ButtonText } from '@/components/ui/button';
+import { useQuery } from '@apollo/client';
+import { ClientSessionUserInfoDocument } from '@/generated/client/graphql';
 
 export const Profile = () => {
   const router = useRouter();
   const [accessToken, setAccessToken] = React.useState('');
+
+  const { data } = useQuery(ClientSessionUserInfoDocument);
 
   return (
     <SafeAreaView style={{ flex: 1, rowGap: 16, backgroundColor: '#eee' }}>
@@ -24,8 +28,8 @@ export const Profile = () => {
           <AvatarBadge />
         </Avatar>
         <View>
-          <Heading size="xl">Username</Heading>
-          <Text>test@test.com</Text>
+          <Heading size="xl">{data?.clientSession?.user?.name}</Heading>
+          <Text>{data?.clientSession?.user?.email}</Text>
         </View>
         <View style={{ marginBottom: 8 }}>
           <Button

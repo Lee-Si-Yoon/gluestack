@@ -1,0 +1,9 @@
+query ClientSessionUserInfo {
+  clientSession {
+    user {
+      id
+      name
+      email
+    }
+  }
+}

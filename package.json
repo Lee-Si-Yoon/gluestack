@@ -9,12 +9,14 @@
     "web": "DARK_MODE=media expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write"
+    "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.8",
     "@expo/html-elements": "^0.4.2",
     "@expo/vector-icons": "^14.0.2",
     "@gluestack-ui/accordion": "^1.0.8",
@@ -48,6 +50,7 @@
     "@gluestack-ui/tooltip": "^0.1.38",
     "@hookform/resolvers": "^5.0.1",
     "@legendapp/motion": "^2.4.0",
+    "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "babel-plugin-module-resolver": "^5.0.2",
@@ -64,6 +67,7 @@
     "expo-symbols": "~0.2.1",
     "expo-system-ui": "~4.0.7",
     "expo-web-browser": "~14.0.2",
+    "graphql": "^16.11.0",
     "nativewind": "^4.1.23",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -79,11 +83,11 @@
     "react-native-webview": "13.12.5",
     "supertokens-react-native": "^5.1.3",
     "tailwindcss": "^3.4.17",
-    "zod": "^3.24.4",
-    "@react-native-async-storage/async-storage": "1.23.1"
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@graphql-codegen/cli": "^5.0.5",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
     "@types/react-test-renderer": "^18.3.0",
